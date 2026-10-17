@@ -1,0 +1,17 @@
+
+services:
+  smartstudyai:
+    image: smartstudyai:latest
+    ports:
+      - "8000:8000"
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+    volumes:
+      - smartstudyai_pdfs:/app/uploaded_pdfs
+      - smartstudyai_vector_store:/app/vector_store
+
+volumes:
+  smartstudyai_pdfs:
+    external: true
+  smartstudyai_vector_store:
+    external: true
